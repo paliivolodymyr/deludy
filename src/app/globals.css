@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --color-cream: #f7e4d3;
+  --color-cream-light: #fdf4ea;
+  --color-dark: #20080c;
+  --color-orange: #f36525;
+  --color-green: #007044;
+  --color-yellow: #f8b85c;
+
+  --font-display: var(--font-ambition), system-ui, sans-serif;
+  --font-body: var(--font-comfortaa), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-dark);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-orange);
+  color: var(--color-cream);
+}
+
+/* brand-tinted Leaflet tiles: grayscale CARTO -> warm cream */
+.map-tiles {
+  filter: sepia(0.35) saturate(0.85) brightness(1.03) contrast(0.95);
+}
+
+.leaflet-container {
+  background: var(--color-cream);
+  font-family: var(--font-body);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--color-cream-light);
+  color: var(--color-dark);
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 16px;
+  border: 2px solid var(--color-dark);
+  box-shadow: 4px 4px 0 rgba(32, 8, 12, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
