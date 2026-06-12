@@ -6,7 +6,6 @@ import CallCta from "./CallCta";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import { site } from "@/config/site";
 import markDark from "../../public/brand/img/mark-dark.png";
-import handPoint from "../../public/brand/img/hand-point-yellow.png";
 import heartOrange from "../../public/brand/img/heart-orange.png";
 
 const LETTERS = ["д", "е", "Л", "ю", "д", "и"];
@@ -60,15 +59,6 @@ export default function Hero() {
         repeat: -1,
         ease: "sine.inOut",
         delay: 1.6,
-      });
-      gsap.to(".hero-hand", {
-        x: -12,
-        rotate: -6,
-        duration: 0.9,
-        yoyo: true,
-        repeat: -1,
-        ease: "sine.inOut",
-        delay: 2,
       });
       gsap.to(".hero-heart", {
         y: -10,
@@ -136,15 +126,9 @@ export default function Hero() {
           {site.tagline}
         </p>
 
-        <div className="relative mt-10">
+        <div className="mt-10">
           <div className="hero-cta">
             <CallCta>Подзвонити й замовити</CallCta>
-          </div>
-          <div
-            aria-hidden
-            className="hero-doodle hero-hand pointer-events-none absolute -right-28 top-1/2 hidden w-24 -translate-y-1/2 rotate-[140deg] md:block"
-          >
-            <Image src={handPoint} alt="" />
           </div>
         </div>
 

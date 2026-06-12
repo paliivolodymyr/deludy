@@ -31,6 +31,15 @@ body {
   color: var(--color-dark);
   font-family: var(--font-body);
   overflow-x: hidden;
+  cursor: url(/brand/img/cursor-hand.png) 4 2, auto;
+}
+
+a,
+button,
+[role="button"],
+input[type="submit"],
+label[for] {
+  cursor: url(/brand/img/cursor-hand-green.png) 4 2, pointer;
 }
 
 ::selection {
