@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { site, phoneHref } from "@/config/site";
+import { site, phoneHref, mapsUrl, directionsUrl } from "@/config/site";
 
 export default function MapSection() {
   const mapEl = useRef<HTMLDivElement>(null);
@@ -22,20 +22,16 @@ export default function MapSection() {
         attributionControl: true,
       });
 
-      L.tileLayer(
-        "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-        {
-          attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-          subdomains: "abcd",
-          maxZoom: 20,
-          className: "map-tiles",
-        },
-      ).addTo(map);
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 19,
+        className: "map-tiles",
+      }).addTo(map);
 
       const icon = L.divIcon({
         className: "",
-        html: `<img src="/brand/img/marker.svg" style="width:72px;height:auto;filter:drop-shadow(2px 3px 0 rgba(32,8,12,.35))" alt=""/>`,
+        html: `<img src="/brand/img/marker.svg" style="width:72px;height:auto;filter:drop-shadow(0 0 5px rgba(247,228,211,.95)) drop-shadow(0 0 2px rgba(247,228,211,1)) drop-shadow(2px 3px 0 rgba(32,8,12,.3))" alt=""/>`,
         iconSize: [72, 40],
         iconAnchor: [36, 40],
         popupAnchor: [0, -44],
@@ -44,7 +40,7 @@ export default function MapSection() {
       L.marker([site.coords.lat, site.coords.lng], { icon })
         .addTo(map)
         .bindPopup(
-          `<strong style="font-size:15px">${site.name}</strong><br/>${site.address.street}, ${site.address.city}`,
+          `<strong style="font-size:15px">${site.name}</strong><br/>${site.address.street}, ${site.address.city}<br/><a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:6px;font-weight:700;color:#f36525">Відкрити в Google Maps →</a>`,
         )
         .openPopup();
     })();
@@ -76,6 +72,22 @@ export default function MapSection() {
               <p className="mt-2 text-lg">
                 {site.address.street}, {site.address.city}
               </p>
+              <a
+                href={directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-2 rounded-full border-2 border-cream/60 px-5 py-2.5 text-base font-bold text-cream transition-colors hover:border-yellow hover:text-yellow"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5"
+                  fill="currentColor"
+                  aria-hidden
+                >
+                  <path d="M21.7 10.9 13.1 2.3a1.6 1.6 0 0 0-2.2 0l-8.6 8.6a1.6 1.6 0 0 0 0 2.2l8.6 8.6c.6.6 1.6.6 2.2 0l8.6-8.6c.6-.6.6-1.6 0-2.2ZM14 14.5V12h-3.5a.5.5 0 0 0-.5.5V15H8v-2.5A2.5 2.5 0 0 1 10.5 10H14V7.5l3.5 3.5-3.5 3.5Z" />
+                </svg>
+                Прокласти маршрут
+              </a>
             </div>
 
             <div>

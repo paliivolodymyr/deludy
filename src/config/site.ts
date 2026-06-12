@@ -99,3 +99,8 @@ export const site = {
 } as const;
 
 export const phoneHref = `tel:${site.phone.replace(/[^\d+]/g, "")}`;
+
+// universal Google Maps links: open the native app on mobile, website on desktop
+const coordsStr = `${site.coords.lat},${site.coords.lng}`;
+export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${coordsStr}`;
+export const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${coordsStr}`;

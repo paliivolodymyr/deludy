@@ -47,9 +47,9 @@ label[for] {
   color: var(--color-cream);
 }
 
-/* brand-tinted Leaflet tiles: grayscale CARTO -> warm cream */
+/* brand-tinted Leaflet tiles: OSM standard -> warm, brand-adjacent */
 .map-tiles {
-  filter: sepia(0.35) saturate(0.85) brightness(1.03) contrast(0.95);
+  filter: sepia(0.22) saturate(1.08) contrast(1.06) brightness(1.02);
 }
 
 .leaflet-container {
