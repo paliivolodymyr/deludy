@@ -1,63 +1,62 @@
-# ДеЛюди — сайт кав'ярні
+# DeLudy — coffee shop website
 
-Односторінковий лендинг кав'ярні третьої хвилі **ДеЛюди**. Next.js + Tailwind + GSAP, мапа Leaflet (без ключів і оплати).
+Single-page landing for **ДеЛюди**, a third-wave coffee shop in Ternopil, Ukraine. Next.js + Tailwind + GSAP, Leaflet map (no API keys, no billing).
 
-## Запуск локально
+## Run locally
 
 ```bash
 npm install
 npm run dev
-# відкрити http://localhost:3000
+# open http://localhost:3000
 ```
 
-## Деплой на Vercel (безкоштовно)
+## Deploy to Vercel (free)
 
-**Варіант 1 — через GitHub (рекомендовано):**
+**Option 1 — via GitHub (recommended):**
 
-1. Створіть репозиторій на GitHub і запуште код:
+1. Push the code:
    ```bash
-   git remote add origin https://github.com/<ваш-нік>/deludy.git
    git push -u origin main
    ```
-2. На [vercel.com](https://vercel.com) → **Add New → Project** → імпортуйте репозиторій.
-3. Нічого не налаштовуйте — Vercel сам розпізнає Next.js. **Deploy**.
-4. Сайт буде на `https://deludy.vercel.app` (або схожому). Далі кожен `git push` — автоматичний деплой.
+2. On [vercel.com](https://vercel.com) → **Add New → Project** → import the repository.
+3. No configuration needed — Vercel auto-detects Next.js. **Deploy**.
+4. The site goes live at `https://deludy.vercel.app` (or similar). Every later `git push` redeploys automatically.
 
-**Варіант 2 — без GitHub:**
+**Option 2 — without GitHub:**
 
 ```bash
 npx vercel
 ```
 
-і відповідайте на питання (все за замовчуванням).
+and accept the defaults.
 
-## Де міняти дані кав'ярні
+## Where to edit shop data
 
-Усе в одному файлі: [`src/config/site.ts`](src/config/site.ts)
+Everything lives in one file: [`src/config/site.ts`](src/config/site.ts)
 
-- телефон (зараз плейсхолдер `+380 67 000 00 00`)
-- адреса і координати точки на мапі
-- години роботи
-- інстаграм
-- меню з цінами
+- phone number
+- address and map coordinates
+- opening hours
+- Instagram
+- menu with prices
 
-Після зміни координат мапа і Schema.org-розмітка оновляться автоматично.
+The map and Schema.org markup update automatically after editing.
 
-## Що ще треба надати (чек-лист)
+## Still pending (checklist)
 
-- [ ] Реальний номер телефону
-- [ ] Адреса + координати (з Google Maps: ПКМ по точці → перші два числа)
-- [ ] Години роботи по днях
-- [ ] Інстаграм-хендл
-- [ ] Меню: 6–10 позицій з цінами
-- [ ] Фото інтер'єру (5–8 шт, ширина від 1600px) — замінити у `public/brand/gallery/`
-- [ ] Фото напоїв (5–8 шт)
-- [ ] (опційно) Відео для головного екрана: 10–20 с, горизонтальне, без звуку
-- [ ] (опційно) Власний домен
+- [x] Phone number
+- [x] Address + coordinates
+- [x] Opening hours
+- [x] Instagram handle
+- [x] Menu with prices
+- [ ] Interior photos (5–8, at least 1600px wide) — replace files in `public/brand/gallery/`
+- [ ] Drink photos (5–8)
+- [ ] (optional) Hero video: 10–20 s, horizontal, no sound
+- [ ] (optional) Custom domain
 
-## Структура
+## Structure
 
-- `src/config/site.ts` — всі дані кав'ярні
-- `src/components/` — секції: Hero, About, Menu, Gallery, Socials, MapSection, Footer
-- `public/brand/` — оптимізовані бренд-асети (шрифти woff2, SVG, PNG)
-- `ДеЛюди/` — вихідні файли дизайну (не потрапляють у git/деплой)
+- `src/config/site.ts` — all shop data
+- `src/components/` — sections: Hero, About, Menu, Gallery, Socials, MapSection, Footer
+- `public/brand/` — optimized brand assets (woff2 fonts, SVG, PNG)
+- `ДеЛюди/` — original design sources (excluded from git/deploy)
