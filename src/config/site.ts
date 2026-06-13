@@ -94,8 +94,7 @@ export const site = {
     ],
   },
 
-  // TODO: власний домен, якщо з'явиться
-  url: "https://deludy.vercel.app",
+  url: "https://deludy.com",
 } as const;
 
 export const phoneHref = `tel:${site.phone.replace(/[^\d+]/g, "")}`;

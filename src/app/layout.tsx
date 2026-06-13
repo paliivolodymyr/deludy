@@ -1,12 +1,24 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { ambition, comfortaa } from "@/lib/fonts";
 import { site, phoneHref } from "@/config/site";
 import "./globals.css";
+
+const ogImage = { url: "/og.png", width: 1200, height: 630, alt: site.name };
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: `${site.name} — ${site.tagline}`,
   description: site.description,
+  keywords: [
+    "кав'ярня Тернопіль",
+    "спешелті кава",
+    "кава третьої хвилі",
+    "матча бар",
+    site.name,
+  ],
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
+  icons: { icon: "/icon.svg", apple: "/brand/img/mark-light.png" },
   openGraph: {
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
@@ -14,8 +26,18 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "uk_UA",
     type: "website",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: site.name }],
+    images: [ogImage],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
+    images: [ogImage],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#20080c",
 };
 
 const jsonLd = {
