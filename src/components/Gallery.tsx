@@ -49,7 +49,7 @@ function RowItem({
             : heartYellow;
     return (
       <div className="flex w-28 shrink-0 items-center justify-center md:w-36">
-        <Image src={src} alt="" className="w-20 md:w-28" />
+        <Image src={src} alt="" className="w-20 md:w-28" sizes="112px" />
       </div>
     );
   }

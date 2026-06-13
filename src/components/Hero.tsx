@@ -108,7 +108,12 @@ export default function Hero() {
 
       <div className="hero-inner relative z-10 flex flex-col items-center px-6 pb-28 pt-16 text-center">
         <div className="hero-bird relative mb-2 w-[clamp(180px,30vw,320px)]">
-          <Image src={markDark} alt="" priority />
+          <Image
+            src={markDark}
+            alt="Логотип кав'ярні ДеЛюди"
+            priority
+            sizes="(max-width: 768px) 60vw, 320px"
+          />
         </div>
 
         <h1
@@ -143,7 +148,7 @@ export default function Hero() {
           aria-hidden
           className="hero-doodle hero-heart pointer-events-none absolute -left-4 top-24 w-16 md:left-[12%] md:top-[20%] md:w-24"
         >
-          <Image src={heartOrange} alt="" />
+          <Image src={heartOrange} alt="" sizes="96px" />
         </div>
       </div>
 

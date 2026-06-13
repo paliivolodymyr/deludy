@@ -87,13 +87,13 @@ export default function About() {
         </div>
         <div className="relative mx-auto w-64 md:w-80">
           <div className="about-bird">
-            <Image src={birdWhite} alt="ДеЛюди — кав'ярня третьої хвилі" />
+            <Image src={birdWhite} alt="ДеЛюди — кав'ярня третьої хвилі" sizes="320px" />
           </div>
           <div
             aria-hidden
             className="about-heart absolute -bottom-8 -left-10 w-20"
           >
-            <Image src={heartYellow} alt="" />
+            <Image src={heartYellow} alt="" sizes="80px" />
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ export const site = {
   name: "ДеЛюди",
   tagline: "кав'ярня третьої хвилі",
   description:
-    "ДеЛюди — кав'ярня третьої хвилі у Тернополі. Спешелті кава, привітні люди та місце, де хочеться залишитись. Подзвоніть — і ваша кава вже готується.",
+    "ДеЛюди — кав'ярня третьої хвилі у Тернополі, вул. Доли 9. Спешелті кава, матча бар, привітні люди та місце, де хочеться залишитись. Подзвоніть або напишіть у Telegram — і ваша кава вже готується.",
 
   phone: "+380 68 189 48 48",
 
@@ -26,6 +26,8 @@ export const site = {
   socials: {
     instagram: "https://instagram.com/deludy.coffee",
     instagramHandle: "@deludy.coffee",
+    telegram: "https://t.me/deludy_coffee",
+    telegramHandle: "@deludy_coffee",
   },
 
   menu: [

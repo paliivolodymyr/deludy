@@ -55,7 +55,7 @@ export default function Menu() {
             </p>
           </div>
           <div aria-hidden className="menu-octopus w-28 shrink-0 md:w-44">
-            <Image src={cupOctopus} alt="" />
+            <Image src={cupOctopus} alt="" sizes="176px" />
           </div>
         </div>
 
@@ -75,6 +75,7 @@ export default function Menu() {
                   <Image
                     src={cat.accent === "green" ? heartGreen : heartOrange}
                     alt=""
+                    sizes="28px"
                   />
                 </div>
               </div>

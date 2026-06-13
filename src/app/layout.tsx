@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { ambition, comfortaa } from "@/lib/fonts";
 import { site, phoneHref } from "@/config/site";
 import "./globals.css";
@@ -18,7 +19,6 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
-  icons: { icon: "/icon.svg", apple: "/brand/img/mark-light.png" },
   openGraph: {
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
@@ -95,6 +95,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );
