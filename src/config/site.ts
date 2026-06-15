@@ -136,6 +136,7 @@ export const site = {
 export const phoneHref = `tel:${site.phone.replace(/[^\d+]/g, "")}`;
 
 // universal Google Maps links: open the native app on mobile, website on desktop
-const coordsStr = `${site.coords.lat},${site.coords.lng}`;
-export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${coordsStr}`;
-export const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${coordsStr}`;
+// use business name + address so Google resolves the exact place, not nearest coords
+const placeQuery = encodeURIComponent(`${site.name}, ${site.address.street}, ${site.address.city}`);
+export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${placeQuery}`;
+export const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${placeQuery}`;

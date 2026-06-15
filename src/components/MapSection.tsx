@@ -40,7 +40,7 @@ export default function MapSection() {
       L.marker([site.coords.lat, site.coords.lng], { icon })
         .addTo(map)
         .bindPopup(
-          `<strong style="font-size:15px">${site.name}</strong><br/>${site.address.street}, ${site.address.city}<br/><a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:6px;font-weight:700;color:#f36525">Відкрити в Google Maps →</a>`,
+          `<strong style="font-size:15px">${site.name}</strong><br/>${site.address.street}, ${site.address.city}<br/><a href="${directionsUrl}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:6px;font-weight:700;color:#f36525">Прокласти маршрут →</a>`,
         )
         .openPopup();
     })();
