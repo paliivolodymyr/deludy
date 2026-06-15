@@ -15,7 +15,7 @@ export default function StickyCallButton() {
       return;
     }
     const st = ScrollTrigger.create({
-      start: "80% top",
+      start: () => window.innerHeight * 0.85,
       onEnter: () =>
         gsap.to(el, { autoAlpha: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }),
       onLeaveBack: () =>

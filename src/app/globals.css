@@ -69,6 +69,11 @@ label[for] {
   box-shadow: 4px 4px 0 rgba(32, 8, 12, 0.25);
 }
 
+.leaflet-popup-close-button {
+  top: 5px !important;
+  right: 5px !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

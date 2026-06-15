@@ -8,7 +8,8 @@ import birdWhite from "../../public/brand/img/bird-tagline-white.png";
 
 export default function Socials() {
   const root = useRef<HTMLElement>(null);
-  const btn = useRef<HTMLAnchorElement>(null);
+  const igBtn = useRef<HTMLAnchorElement>(null);
+  const tgBtn = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
@@ -22,26 +23,32 @@ export default function Socials() {
         scrollTrigger: { trigger: root.current, start: "top 70%" },
       });
 
-      // magnetic button
-      const el = btn.current;
-      if (!el) return;
-      const xTo = gsap.quickTo(el, "x", { duration: 0.4, ease: "power3" });
-      const yTo = gsap.quickTo(el, "y", { duration: 0.4, ease: "power3" });
-      const onMove = (e: MouseEvent) => {
-        const r = el.getBoundingClientRect();
-        const dx = e.clientX - (r.left + r.width / 2);
-        const dy = e.clientY - (r.top + r.height / 2);
-        const dist = Math.hypot(dx, dy);
-        if (dist < 160) {
-          xTo(dx * 0.3);
-          yTo(dy * 0.3);
-        } else {
-          xTo(0);
-          yTo(0);
-        }
+      const magnetic = (el: HTMLAnchorElement) => {
+        const xTo = gsap.quickTo(el, "x", { duration: 0.4, ease: "power3" });
+        const yTo = gsap.quickTo(el, "y", { duration: 0.4, ease: "power3" });
+        const onMove = (e: MouseEvent) => {
+          const r = el.getBoundingClientRect();
+          const dx = e.clientX - (r.left + r.width / 2);
+          const dy = e.clientY - (r.top + r.height / 2);
+          if (Math.hypot(dx, dy) < 120) {
+            xTo(dx * 0.18);
+            yTo(dy * 0.18);
+          } else {
+            xTo(0);
+            yTo(0);
+          }
+        };
+        window.addEventListener("mousemove", onMove);
+        return onMove;
       };
-      window.addEventListener("mousemove", onMove);
-      return () => window.removeEventListener("mousemove", onMove);
+
+      const listeners: ((e: MouseEvent) => void)[] = [];
+      if (igBtn.current) listeners.push(magnetic(igBtn.current));
+      if (tgBtn.current) listeners.push(magnetic(tgBtn.current));
+
+      return () => {
+        listeners.forEach((fn) => window.removeEventListener("mousemove", fn));
+      };
     }, root);
     return () => ctx.revert();
   }, []);
@@ -55,12 +62,9 @@ export default function Socials() {
         <h2 className="mt-6 font-display text-3xl text-cream-light md:text-5xl">
           Будьмо на зв&apos;язку
         </h2>
-        <p className="mt-3 font-body text-xl font-bold text-dark md:text-2xl">
-          {site.socials.instagramHandle}
-        </p>
         <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row">
           <a
-            ref={btn}
+            ref={igBtn}
             href={site.socials.instagram}
             target="_blank"
             rel="noopener noreferrer"
@@ -72,6 +76,7 @@ export default function Socials() {
             Instagram
           </a>
           <a
+            ref={tgBtn}
             href={site.socials.telegram}
             target="_blank"
             rel="noopener noreferrer"
@@ -84,9 +89,6 @@ export default function Socials() {
             Telegram
           </a>
         </div>
-        <p className="mt-4 font-body text-base font-semibold text-dark/70">
-          {site.socials.telegramHandle}
-        </p>
       </div>
     </section>
   );

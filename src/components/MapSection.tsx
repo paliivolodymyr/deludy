@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { site, phoneHref, mapsUrl, directionsUrl } from "@/config/site";
+import { site, mapsUrl, directionsUrl } from "@/config/site";
 
 export default function MapSection() {
   const mapEl = useRef<HTMLDivElement>(null);
@@ -104,26 +104,6 @@ export default function MapSection() {
               </ul>
             </div>
 
-            <div>
-              <h3 className="font-display text-2xl text-yellow">
-                Замовити каву
-              </h3>
-              <a
-                href={phoneHref}
-                className="mt-3 inline-block rounded-full border-[3px] border-cream bg-orange px-7 py-3.5 text-lg font-bold text-cream-light shadow-[5px_5px_0_rgba(247,228,211,0.25)] transition-transform hover:scale-105 active:scale-95"
-              >
-                {site.phone}
-              </a>
-            </div>
-
-            <a
-              href={site.socials.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-lg text-cream/70 underline-offset-4 hover:text-yellow hover:underline"
-            >
-              Instagram: {site.socials.instagramHandle}
-            </a>
           </div>
         </div>
       </div>

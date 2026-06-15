@@ -52,9 +52,12 @@ export const site = {
       ],
     },
     {
-      title: "Specialty Кава",
+      title: "Спешл Кава",
       accent: "orange",
-      items: [{ name: "Капуоранж", price: "90" }],
+      items: [
+        { name: "Еспресо Тонік", price: "90" },
+        { name: "Еспресо Оранж", price: "90" },
+      ],
     },
     {
       title: "Матча Бар",
@@ -62,7 +65,7 @@ export const site = {
       items: [
         { name: "Матча Лате", price: "90" },
         { name: "Матча капуч", price: "85" },
-        { name: "Матча на апельсиновому фреші", price: "95" },
+        { name: "Матча Оранж", price: "95" },
       ],
     },
     {
@@ -81,6 +84,37 @@ export const site = {
         { name: "Чай натуральний", price: "50" },
         { name: "Чай гречаний", price: "50" },
         { name: "Шу Пуер", price: "50" },
+      ],
+    },
+  ],
+
+  lidMenu: [
+    {
+      title: "Кава",
+      accent: "orange" as const,
+      items: [
+        { name: "Фісташкове лате", note: "із ніжним ванільним кремом", price: "120" },
+        { name: "Вишневий еспресо тонік", price: "100" },
+        { name: "Еспресо тонік із лаймом", price: "100" },
+        { name: "Еспресо оранж", price: "90" },
+        { name: "Колд брю із вершковим кремом", price: "115" },
+      ],
+    },
+    {
+      title: "Матча",
+      accent: "green" as const,
+      items: [
+        { name: "Малинова матча", note: "із малиновим кремом", price: "150" },
+        { name: "Матча на кокосовій воді", price: "130" },
+      ],
+    },
+    {
+      title: "Охолоджує",
+      accent: "orange" as const,
+      items: [
+        { name: "Ванільне какао", note: "із вершковим кремом", price: "100" },
+        { name: "Сезонні лимонади", price: "100" },
+        { name: "Мохіто", price: "90" },
       ],
     },
   ],

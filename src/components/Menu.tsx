@@ -123,6 +123,41 @@ export default function Menu() {
         <p className="mt-10 text-center font-body text-base font-medium text-dark/70">
           Ціни у гривнях. Подзвоніть — і ваша кава вже готується ☕
         </p>
+
+        {/* Лід-меню */}
+        <div className="mt-20">
+          <h3 className="font-display text-3xl text-dark md:text-5xl">лід-меню</h3>
+          <p className="mt-2 font-body text-base font-medium text-dark/60">сезонно · охолоджує</p>
+          <div className="menu-grid mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {site.lidMenu.map((cat) => (
+              <div key={cat.title} className="menu-card group">
+                <div className="h-full rounded-3xl border-[3px] border-dark bg-cream-light p-6 shadow-[5px_5px_0_var(--color-dark)] transition-transform duration-200 group-hover:-rotate-1 group-hover:scale-[1.02]">
+                  <div className="flex items-center justify-between gap-2">
+                    <h4 className={`font-display text-2xl ${cat.accent === "green" ? "text-green" : "text-orange"}`}>
+                      {cat.title}
+                    </h4>
+                    <div className="w-7 shrink-0">
+                      <Image src={cat.accent === "green" ? heartGreen : heartOrange} alt="" sizes="28px" />
+                    </div>
+                  </div>
+                  <ul className="mt-4 space-y-2.5">
+                    {cat.items.map((item) => (
+                      <li key={item.name} className="font-body">
+                        <div className="flex items-baseline justify-between gap-3">
+                          <span className="font-medium text-dark">{item.name}</span>
+                          <span className="shrink-0 font-bold text-dark/80">{item.price}</span>
+                        </div>
+                        {"note" in item && item.note && (
+                          <p className="mt-0.5 text-sm italic text-dark/50">{item.note}</p>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

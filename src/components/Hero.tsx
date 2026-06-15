@@ -70,13 +70,6 @@ export default function Hero() {
         delay: 2,
       });
 
-      // pattern strip slow drift + hero parallax out
-      gsap.to(".hero-pattern", {
-        backgroundPosition: "-565px 0px",
-        duration: 30,
-        repeat: -1,
-        ease: "none",
-      });
       gsap.to(".hero-inner", {
         yPercent: -12,
         opacity: 0.4,
@@ -152,16 +145,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* scrolling pattern strip at the bottom */}
-      <div
-        aria-hidden
-        className="hero-pattern absolute bottom-0 left-0 h-24 w-full opacity-15"
-        style={{
-          backgroundImage: "url(/brand/img/pattern-brown.svg)",
-          backgroundSize: "auto 200%",
-          backgroundRepeat: "repeat-x",
-        }}
-      />
     </section>
   );
 }
