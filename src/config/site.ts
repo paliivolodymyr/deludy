@@ -20,7 +20,6 @@ export const site = {
 
   hours: [
     { days: "Щодня", time: "08:00 – 20:00" },
-    { days: "Неділя (навесні)", time: "09:00 – 19:00" },
   ],
 
   socials: {

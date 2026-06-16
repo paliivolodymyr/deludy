@@ -130,16 +130,13 @@ export default function Hero() {
           </div>
         </div>
 
-        <a
-          href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}
-          className="mt-4 font-body text-base font-semibold text-dark/70 underline-offset-4 hover:underline"
-        >
-          {site.phone}
-        </a>
+        <p className="mt-4 font-body text-base font-semibold text-dark/70">
+          {site.address.street}, {site.address.city}
+        </p>
 
         <div
           aria-hidden
-          className="hero-doodle hero-heart pointer-events-none absolute -left-4 top-24 w-16 md:left-[12%] md:top-[20%] md:w-24"
+          className="hero-doodle hero-heart pointer-events-none absolute left-2 top-24 w-16 md:left-[12%] md:top-[20%] md:w-24"
         >
           <Image src={heartOrange} alt="" sizes="96px" />
         </div>
