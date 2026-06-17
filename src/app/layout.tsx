@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { ambition, comfortaa } from "@/lib/fonts";
 import { site, phoneHref } from "@/config/site";
@@ -96,6 +97,10 @@ export default function RootLayout({
         />
         {children}
         <Analytics />
+        <Script
+          src="https://t.contentsquare.net/uxa/ce4198127c552.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
